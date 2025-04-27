@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "bfd3fafd-dcbe-4414-91a8-d494a909890d",
+		"name": "MentorMentee2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34796044"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n    \"email\": \"krishna@gmail.com\", \r\n    \"password\": \"password\",\r\n    \"role\": \"mentor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"3\",\r\n  \"email\": \"3@gmail.com\",\r\n  \"password\": \"password\",\r\n  \"role\": \"mentee\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mentorlink-backend.onrender.com/api/auth/register",
+							"protocol": "https",
+							"host": [
+								"mentorlink-backend",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "appointments",
+			"item": [
+				{
+					"name": "createAppointment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGJkZGM5NmEyM2VlNzk4MDE0MyIsInJvbGUiOiJtZW50ZWUiLCJpYXQiOjE3MzM1NzEyMTYsImV4cCI6MTczMzY1NzYxNn0.Fj7vLvEIws7BqHODVMUyz-xSvTzBWwYEQImi2m-8XF0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2024-12-10\",\r\n  \"time\": \"10:30\",\r\n  \"reason\": \"Discuss project progress\",\r\n  \"receiverId\": \"674d9da5dc96a23ee798013f\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAppointments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzM1NzE0MTIsImV4cCI6MTczMzY1NzgxMn0.2WxsWTtdg7PcEWLAEONHQWqEjI51qu77l2iuzL_czPM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMenteesAssigneTtoMentor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzM1NzE0MTIsImV4cCI6MTczMzY1NzgxMn0.2WxsWTtdg7PcEWLAEONHQWqEjI51qu77l2iuzL_czPM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/appointments/assigned-mentees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"appointments",
+								"assigned-mentees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMentorAssignedToMentee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGJkZGM5NmEyM2VlNzk4MDE0MyIsInJvbGUiOiJtZW50ZWUiLCJpYXQiOjE3MzM1NzIwNDgsImV4cCI6MTczMzY1ODQ0OH0.6gc5BYzJc7SDvo8iY-U7LH187LLTMSsGhFzFqYUlFh0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/appointments/mentor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"appointments",
+								"mentor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAppointmentStatus",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzM1NzM5MjksImV4cCI6MTczMzY2MDMyOX0.ZSxC8xFHNzXGFcaDTQU-8CxzRw-xUb4_MLa_XMe0r6U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"Accepted\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/appointments/675432dd67816432aab3f859",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"appointments",
+								"675432dd67816432aab3f859"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mentorship",
+			"item": [
+				{
+					"name": "getAllUnselectedMentees",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzMxMzk5MTcsImV4cCI6MTczMzIyNjMxN30.8RIL93t8T7zyy_3_ocoFZ92G6lbH2axEq9-nNSBGrq0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/mentorships/available",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"mentorships",
+								"available"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "selectMentees",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzMxNjE1NTAsImV4cCI6MTczMzI0Nzk1MH0.njLxfQUsNhy21pTFTMpwC7aWFKDCE0Jii-5VoJOy9DU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"menteeId\": \"674db67028e855dff38dd9e2\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/mentorships/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"mentorships",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMenteesAssignedToMentor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzMxNTgwMTYsImV4cCI6MTczMzI0NDQxNn0.8yd2DU6qmoVaFhwyYKe8n-kwGWpS3GYRtlhGJi_iMrE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/mentorships/mentees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"mentorships",
+								"mentees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnassignMenteeByMentor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzMxNjE1NTAsImV4cCI6MTczMzI0Nzk1MH0.njLxfQUsNhy21pTFTMpwC7aWFKDCE0Jii-5VoJOy9DU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"menteeId\": \"674db67028e855dff38dd9e2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/mentorships/unassign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"mentorships",
+								"unassign"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "feedback",
+			"item": [
+				{
+					"name": "giveFeedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGJkZGM5NmEyM2VlNzk4MDE0MyIsInJvbGUiOiJtZW50ZWUiLCJpYXQiOjE3MzMxODc3MzIsImV4cCI6MTczMzI3NDEzMn0.wyqMq1BJ27hJA5jM9WJ2vPt1L_hqPdHOsyIkntDkwj8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mentor\": \"674d9da5dc96a23ee798013f\", \r\n  \"text\": \"The mentorship sessions have been incredibly helpful. Thank you!\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/feedback/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"feedback",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "giveFeedback Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzMxODg0NDQsImV4cCI6MTczMzI3NDg0NH0.iMeLux3dDFd8g_2iRW683l_jkD0G9zTk5u5OB4JcXnw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/feedback/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"feedback",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "achievements",
+			"item": [
+				{
+					"name": "uplodeMenteeAchivement",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGJkZGM5NmEyM2VlNzk4MDE0MyIsInJvbGUiOiJtZW50ZWUiLCJpYXQiOjE3MzM0MDgzNTgsImV4cCI6MTczMzQ5NDc1OH0.pn1-S2wfGrBtRUPxedt0UHh4hxgHhZWysPhokW2fJJY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"achievementText\": \"Completed JavaScript course with 90% marks\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/achievements/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"achievements",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewMenteeAchivement",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGJkZGM5NmEyM2VlNzk4MDE0MyIsInJvbGUiOiJtZW50ZWUiLCJpYXQiOjE3MzM0MDgzNTgsImV4cCI6MTczMzQ5NDc1OH0.pn1-S2wfGrBtRUPxedt0UHh4hxgHhZWysPhokW2fJJY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/achievements/self",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"achievements",
+								"self"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewAchivementAsMentor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGQ5ZGE1ZGM5NmEyM2VlNzk4MDEzZiIsInJvbGUiOiJtZW50b3IiLCJpYXQiOjE3MzM0MDg2MTIsImV4cCI6MTczMzQ5NTAxMn0.J6l6j22tQInmhwg3EHpp-EGoRxZbdPxR_GQFlSCIUZw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/api/achievements/mentees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"achievements",
+								"mentees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chats",
+			"item": [
+				{
+					"name": "saveChat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"senderId\": \"674d9da5dc96a23ee798013f\",  \r\n  \"receiverId\": \"674d9dbddc96a23ee7980143\",  \r\n  \"messages\": [\r\n    {\r\n      \"sender\": \"674d9da5dc96a23ee798013f\",  \r\n      \"receiver\": \"674d9dbddc96a23ee7980143\",  \r\n      \"text\": \"Hello, how are you?\",\r\n      \"timestamp\": \"2024-12-07T14:30:00Z\"\r\n    },\r\n    {\r\n      \"sender\": \"674d9dbddc96a23ee7980143\",  \r\n      \"receiver\": \"674d9da5dc96a23ee798013f\",  \r\n      \"text\": \"I'm good, thanks! How about you?\",\r\n      \"timestamp\": \"2024-12-07T14:31:00Z\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/chats/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"chats",
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001"
+				}
+			},
+			"response": []
+		}
+	]
+}
