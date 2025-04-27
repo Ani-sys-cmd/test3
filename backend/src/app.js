@@ -9,7 +9,6 @@ import mentorshipRoutes from "./routes/mentorshipRoutes.js";
 import feedbackRoutes from "./routes/feedbackRoutes.js";
 import achievementRoutes from "./routes/achievementsRoutes.js";
 import appointmentsRoutes from "./routes/appointmentsRoutes.js";
-import mentorRoutes from "./routes/MentorProfileRoutes.js";
 import mentorProfileRoutes from "./routes/MentorProfileRoutes.js";
 
 import "./utils/reminderScheduler.js"; // Background reminders
@@ -34,7 +33,7 @@ app.use(cors({
   credentials: true,
 }));
 
-// Middleware
+// Body parsing middleware (must come before mounting routes)
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -70,13 +69,12 @@ app.get("/", (req, res) => {
   res.send("MentorMentee Platform API");
 });
 
-// Routes
+// Mount routes
 app.use("/auth", authRoutes);
 app.use("/mentorships", mentorshipRoutes);
 app.use("/feedback", feedbackRoutes);
 app.use("/achievements", achievementRoutes);
 app.use("/appointments", appointmentsRoutes);
-app.use("/mentor", mentorRoutes);
 app.use("/mentorProfile", mentorProfileRoutes);
 
 export { app };

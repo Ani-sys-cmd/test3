@@ -43,29 +43,30 @@ const Register = () => {
       // Register user
       const response = await axios.post(
         `${API_BASE_URL}/auth/register`,
-        formData
+        formData,
+        { headers: { "Content-Type": "application/json" } }
       );
+      console.log("⏳ /auth/register response.data:", response.data);
       const { success, message: msg, user } = response.data;
       setMessage(msg);
 
-      if (success) {
-        // If the user signed up as a mentor, create an empty MentorProfile
-        if (formData.role === "mentor") {
-          try {
-            await axios.post(
-              `${API_BASE_URL}/mentorProfile/create`,
-              { userId: user._id }
-            );
-          } catch (err) {
-            console.error("Failed to create mentor profile:", err);
-            // Optional: show a warning but still navigate to login
-          }
+      if (success && formData.role === "mentor") {
+        console.log("👉 sending mentorProfile.create with userId:", user._id);
+        try {
+          await axios.post(
+            `${API_BASE_URL}/mentorProfile/create`,
+            { userId: user._id },
+            { headers: { "Content-Type": "application/json" } }
+          );
+        } catch (err) {
+          console.error("Failed to create mentor profile:", err.response || err);
         }
-
-        // Delay then redirect to login
-        setTimeout(() => navigate("/login"), 1000);
       }
+
+      // Delay then redirect to login
+      setTimeout(() => navigate("/login"), 1000);
     } catch (error) {
+      console.error("axios /auth/register error:", error.response || error);
       setMessage(
         error.response?.data?.message ||
         "Registration failed. Please try again."

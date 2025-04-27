@@ -1,6 +1,6 @@
 // routes/mentorProfileRoutes.js
 import express from "express";
-import { createEmptyProfile } from "../controllers/mentorProfileController.js";
+import { createEmptyProfile } from "../controllers/MentorProfileController.js";
 
 const router = express.Router();
 
